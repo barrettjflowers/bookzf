@@ -1,0 +1,75 @@
+<h1>Book Fuzzy Finder</h1>
+
+<script>
+  let input = '';
+  let results = [];
+
+  $: if (input.trim()) {
+    const phrase = `"${input}"`;
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(phrase)}&printType=books&maxResults=3`)
+      .then(res => res.json())
+      .then(data => {
+        results = data.items?.map(item => ({
+          title: item.volumeInfo.title,
+          author: item.volumeInfo.authors?.join(', ') ?? 'Unknown',
+          snippet: item.searchInfo?.textSnippet ?? 'No snippet found.',
+          preview: item.volumeInfo.previewLink
+        })) ?? [];
+      })
+      .catch(err => {
+        console.error(err);
+        results = [];
+      });
+  } else {
+    results = [];
+  }
+</script>
+
+<style>
+  .command-palette {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    max-width: 500px;
+    background: #fff;
+  }
+
+  .command-palette li {
+    padding: 0.75rem;
+    border-bottom: 1px solid #eee;
+  }
+
+  .command-palette li:last-child {
+    border-bottom: none;
+  }
+
+  input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 500px;
+  }
+</style>
+
+<main>
+  <input type="text" bind:value={input} placeholder="Type your variation..." />
+
+  {#if results.length}
+    <ul class="command-palette">
+      {#each results as r}
+       <li>
+    <strong>{r.title}</strong><br />
+    <em>{r.author}</em><br />
+    <small>{@html r.snippet}</small><br />
+    <a href={`${r.preview}&q=${encodeURIComponent(`became rags of skin upon a ${input}`)}`} target="_blank">
+      View in Google Books (quote highlighted)
+    </a>
+    <small style="display: block; color: gray;">Page number will appear if preview is available</small>
+  </li>
+      {/each}
+    </ul>
+  {/if}
+</main>
+
