@@ -1,10 +1,21 @@
 <div class="header">
-<h1 style="text-align: center; margin-bottom: 1.5rem; margin-top: 0rem;">Bookzf</h1>
+<span class="title-inner">
+<h1 class= "title" style="text-align: center; margin-bottom: 1.5rem; margin-top: 0rem;">book<span class="accent">zf</span>
+</h1>
+<svg class="logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 18.291 14.3262">
+ <g>
+  <rect height="14.3262" opacity="0" width="18.291" x="0" y="0"/>
+  <path d="M4.33594 0C2.62695 0 0.878906 0.810547 0.0878906 2.1875C0 2.34375 0 2.45117 0 2.76367L0 13.6719C0 14.0625 0.253906 14.3066 0.683594 14.3066C0.878906 14.3066 1.07422 14.248 1.24023 14.1016C2.20703 13.291 3.45703 12.8613 4.69727 12.8613C5.83008 12.8613 6.94336 13.2227 7.79297 13.9551C7.88086 14.0332 7.98828 14.0723 8.07617 14.0723C8.25195 14.0723 8.39844 13.9355 8.39844 13.7305L8.39844 2.25586C8.39844 2.04102 8.38867 2.01172 8.22266 1.77734C7.50977 0.683594 6.00586 0 4.33594 0ZM13.5938 0C11.9238 0 10.4199 0.683594 9.70703 1.77734C9.54102 2.01172 9.53125 2.04102 9.53125 2.25586L9.53125 13.7305C9.53125 13.9355 9.67773 14.0723 9.85352 14.0723C9.94141 14.0723 10.0488 14.0332 10.1367 13.9551C10.9863 13.2227 12.0996 12.8613 13.2227 12.8613C14.4727 12.8613 15.7227 13.291 16.6895 14.1016C16.8555 14.248 17.0508 14.3066 17.2461 14.3066C17.6758 14.3066 17.9297 14.0625 17.9297 13.6719L17.9297 2.76367C17.9297 2.45117 17.9297 2.34375 17.8418 2.1875C17.0508 0.810547 15.3027 0 13.5938 0Z" fill="white" fill-opacity="0.85"/>
+ </g>
+</svg>
+</span>
+<hr style="margin-top: 0rem; margin-bottom: 1rem; border: none; border-top: 1px solid var(--text-color);">
 <p style="margin: 0.03rem 0; text-align: center;"> Do you switch between audiobooks and physical books? Bookzf can help you find the page you're looking for. </p>
 <p style="text-align: center;"> A fuzzy finder for book pages. </p>
 </div>
 
 <script>
+   import '../app.css';
    let input = '';
    let results = [];
 
@@ -46,135 +57,6 @@ let hasResults = false;
       results = [];
    }
 </script>
-<style>
-  :root {
-  --bg-color: #ede9df;
-  --text-color: #1a1a1a;
-  --border-color: transparent;
-  --item-bg: #e3dcca;
-  --item-hover-bg: #e6f0ff;
-  --item-border: #eee;
-  --input-bg: #e3dcca;
-  --input-border: #ccc;
-  --link-color: #0077cc;
-  --muted-color: #666;
-
-	font-family: menlo;
-  background-color: var(--bg-color);
-}
-
-.header {
-top: 0;
-position: sticky;
-padding: 1em;
-background-color: var(--input-bg);
-width: 100vw;
-height: 100px;
-margin-left: calc(50% - 50vw);
-margin-top: -1rem;
-}
-
-.header p {
-margin: 0.3rem 0;
-}
-
-h1, p {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.input-container {
-  max-width: 600px;
-  margin: 2rem auto 1rem;
-	margin-top: 1.5rem;
-	margin-bottom: 0rem;
-}
-
-.input-container input {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  font-size: 1rem;
-  background: var(--input-bg);
-  color: var(--text-color);
-  border: none;
-  box-sizing: border-box;
-  transition: border 0.2s;
-}
-
-.input-container input:focus {
-  outline: none;
-}
-
-.command-palette {
-  list-style: none;
-  padding: 0;
-  margin: 1rem auto;
-	margin-top: 0rem;
-  border: 1px solid var(--border-color);
-  max-width: 600px;
-  background: var(--item-bg);
-  overflow: hidden;
-	transition: background 0.2s;
-	border: none;
-	z-index: 999;
-}
-
-.command-palette li {
-  padding: 1rem;
-  border-top: 1px solid var(--item-border);
-  border-bottom: 1px solid var(--item-border);
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-@keyframes slidedown {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.command-palette.loaded {
-  animation: slidedown 0.2s;
-}
-
-.command-palette li:hover {
-  background: var(--item-hover-bg);
-}
-
-.command-palette li:last-child {
-  border-bottom: none;
-}
-
-.command-card:link,
-.command-card:visited,
-.command-card:hover,
-.command-card:active {
-  text-decoration: none;
-  color: inherit;
-}
-
-a {
-  color: var(--link-color);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-small, em {
-  color: var(--muted-color);
-}
-
-.footer {
-	position: absolute;
-	background-color: var(--item-bg);
-  bottom: 0;
-	left: 0;
-	width: 100vw;
-  margin-left: calc(50% - 50vw);
-}
-
-</style>
 
 <main><div class="input-container">
   <input type="text" style="font-family: menlo;" bind:value={input} placeholder="Search for a snippet..." />
@@ -208,5 +90,4 @@ small, em {
 </main>
 
 <div class="footer">
-<p style="text-align: left; margin-left: 1rem;"> Made with by <a href="https://github.com/barrettjflowers">Barrett Flowers</a>. </p>
 </div>

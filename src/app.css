@@ -1,0 +1,150 @@
+  :root {
+  --bg-color: #ede9df;
+  --text-color: #1a1a1a;
+  --border-color: transparent;
+  --item-bg: #e3dcca;
+  --item-hover-bg: #e6f0ff;
+  --item-border: #eee;
+  --input-bg: #e3dcca;
+  --input-border: #ccc;
+  --link-color: #0077cc;
+  --muted-color: #666;
+
+	font-family: menlo;
+  background-color: var(--bg-color);
+}
+
+.header {
+position: sticky;
+top: 0;
+left: 0;
+right: 0;
+padding: 0.5em;
+background-color: var(--input-bg);
+margin 1rem;
+}
+
+.title {
+   margin: 1rem; 
+   margin-right: 0rem;
+}
+
+.accent {
+  color: #d9b16c;
+}
+
+.logo {
+  fill: #d9b16c;
+  width: 1rem;
+  height: 1rem;
+  padding-bottom: 2.7rem;
+}
+
+.logo path {
+  fill: var(--text-color);
+}
+
+.title-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: -1rem;
+}
+
+h1, p {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: normal;
+}
+
+.input-container {
+  max-width: 600px;
+  margin: 2rem auto 1rem;
+	margin-top: 1.5rem;
+	margin-bottom: 0rem;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  background: var(--input-bg);
+  color: var(--text-color);
+  border: none;
+  box-sizing: border-box;
+  transition: border 0.2s;
+}
+
+.input-container input:focus {
+  outline: none;
+}
+
+.command-palette {
+  list-style: none;
+  padding: 0;
+  margin: 1rem auto;
+	margin-top: 0rem;
+  border: 1px solid var(--border-color);
+  max-width: 600px;
+  background: var(--item-bg);
+  overflow: hidden;
+	transition: background 0.2s;
+	border: none;
+	z-index: 999;
+}
+
+.command-palette li {
+  padding: 1rem;
+  border-top: 1px solid var(--item-border);
+  border-bottom: 1px solid var(--item-border);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+@keyframes slidedown {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.command-palette.loaded {
+  animation: slidedown 0.2s;
+}
+
+.command-palette li:hover {
+  background: var(--item-hover-bg);
+}
+
+.command-palette li:last-child {
+  border-bottom: none;
+}
+
+.command-card:link,
+.command-card:visited,
+.command-card:hover,
+.command-card:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+small, em {
+  color: var(--muted-color);
+}
+
+.footer {
+	position: absolute;
+	background-color: var(--item-bg);
+    bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
