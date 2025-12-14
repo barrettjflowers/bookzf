@@ -1,3 +1,6 @@
+# Bookzf
+![Screenshot 2025-12-14 at 1 46 28 PM](https://github.com/user-attachments/assets/1a1fc55f-fe8c-4d72-ad25-56d3577e7c58)
+
 # sv
 
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
